@@ -1,0 +1,128 @@
+*{
+    font-family:'Times New Roman', Times, serif;
+}
+header{
+    background-color: darkgray;
+    height: 60px;
+    width: 100%;
+    margin: 0;
+    padding: 0 10px 0 10px;
+    text-align: center;
+}
+header h2{
+    padding: 10px 0 10px 0;
+    
+}
+
+.main{
+    background-color: #ffffff;
+    padding: 10px 0 10px 0;
+    min-width: 156px;
+
+}
+.container{
+    border:none;
+    border-radius: 20px;
+    width: 70%;
+    background-color: whitesmoke;
+    margin: 0 auto;
+    align-items: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.container input{
+    width: 80%;
+    height: 50px;
+    margin: 5% 8% 2% 8%;
+    border-radius: 20px;
+    font-size: large;
+    padding-left: 2%;
+}
+#time{
+    width: 20%;
+    margin:0 0 2% 8%;
+    min-width: 28px;
+}
+.container #add{
+    background-color: #007bff;
+    width: 52%;
+    height: 40px;
+    margin: 0 8% 3% 8%;
+    border-radius: 20px;
+    font-size: 100%;
+    color: white;
+    transition: transform 0.2s ease-in-out;
+}
+#add:hover{
+    /* transform: translateY(-5px); */
+    transform: scale(1.1);
+    /* background-color:greenyellow; */
+  
+}
+
+.out{
+    width: 70%;
+    padding: 0 8% 2% 15%;
+  
+}
+.out ol{
+    margin: 0;
+
+}
+.out li {
+    margin-bottom: 1.5%;
+    margin-top: 1.5%;
+    font-size: large;
+    min-width: 156px;
+    
+
+}
+span{
+    
+    padding-left: 3.5%;
+    padding-right: 3.5%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+.out button{
+    background-color: rgb(162, 255, 0);
+    margin-left: 4%;
+    margin-top: 15px;
+    border-radius: 5px;
+    width: 95px;
+    height: 25px;
+    font-weight: bold;
+    border: none;
+    margin-bottom: 1.5%;
+    margin-top: 1.5%;
+}
+.out button.remove-button{
+    background-color: rgb(255, 52, 52);
+    color: white;
+    margin-bottom: 1.5%;
+    margin-top: 1.5%;
+}
+.complete {
+    border: 2px dotted rgb(37, 202, 37);
+    border-radius: 20px;
+    box-shadow:inset 0 0 20px rgba(51, 245, 34, 0.5);
+    transition: transform 0.2s ease-in-out;
+}
+li:hover{
+    transform: scale(1.1);
+}
+
+footer{
+    width: 100%;
+   margin: 0;
+    padding: 10px 0 10px 0;
+    height: 60px;
+    background-color:black;
+    color: white;
+    text-align: center;
+    
+}
+
+footer p{
+    padding: 10px 0 10px 0;
+} 

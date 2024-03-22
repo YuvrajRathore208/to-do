@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>TODO LIST</title>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header>
+    <h2 style="font-size: xx-large;">To-do list</h2>
+</header>
+<div class="main">
+    <div class="container">
+            <input type="text" placeholder="Enter your task!" id="input" maxlength="70"><br>
+            <input type="time" id="time" class="time" value="12:00">
+            <button id="add" onclick="addTask()" >Add to To-do list</button>
+            
+            
+    </div>
+    <div class="out">
+        <ol id="lis">
+           
+        </ol>
+    </div>
+</div>
+<footer>
+    <p>Copyright@2024 all rights reserve</p>
+</footer>
+<script>
+    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+function renderTasks() {
+    const taskList = document.getElementById('lis');
+    taskList.innerHTML = '';
+    tasks.forEach((task, index) => {
+        const li = document.createElement('li');
+        const taskText = document.createElement('span');
+        taskText.textContent = task.name;
+        if (task.completed) {
+            taskText.classList.add('complete');
+        }
+        li.appendChild(taskText);
+
+        const timeSpan = document.createElement('span');
+        timeSpan.textContent = task.time; 
+        li.appendChild(timeSpan);
+
+        const completeButton = document.createElement('button');
+        completeButton.textContent = task.completed ? 'Undo' : 'Complete';
+        completeButton.addEventListener('click', () => {
+            toggleTask(index);
+        });
+        li.appendChild(completeButton);
+
+        const removeButton = document.createElement('button');
+        removeButton.textContent = 'Remove';
+        removeButton.classList.add('remove-button');
+        removeButton.addEventListener('click', () => {
+            removeTask(index);
+        });
+        li.appendChild(removeButton);
+
+        taskList.appendChild(li);
+    });
+}
+
+function addTask() {
+    const taskInput = document.getElementById('input');
+    const timeInput = document.getElementById('time'); 
+    const taskName = taskInput.value.trim();
+    const taskTime = timeInput.value; 
+
+    if (taskName !== '') {
+        tasks.push({ name: taskName, completed: false, time: taskTime }); 
+        taskInput.value = '';
+        saveTasks();
+        renderTasks();
+    }
+}
+
+
+function toggleTask(index) {
+    tasks[index].completed = !tasks[index].completed;
+    saveTasks();
+    renderTasks();
+}
+
+function removeTask(index) {
+    tasks.splice(index, 1);
+    saveTasks();
+    renderTasks();
+}
+
+function saveTasks() {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+renderTasks();
+
+</script>
+</body>
+</html>
+ 
+
